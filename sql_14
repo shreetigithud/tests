@@ -1,0 +1,6 @@
+ Q14 Write an SQL query to fetch the second highest number from the "student" table.?
+
+ANS:-SELECT DISTINCT number
+FROM student
+ORDER BY number DESC
+LIMIT 1 OFFSET 1;
