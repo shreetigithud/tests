@@ -1,0 +1,6 @@
+Q15:-SQL Quary to get the nth highest salary from Employee table
+
+ANS:-SELECT DISTINCT salary
+FROM employee
+ORDER BY salary DESC
+LIMIT n-1, 1;
