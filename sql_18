@@ -1,0 +1,13 @@
+Q18.  Write the Query to find the Shortest Distance in Plane
+
+ANS:- SELECT 
+    X, 
+    Y, 
+    SQRT(POW(X - (-1), 2) + POW(Y - (-1), 2)) AS distance_to_point
+FROM 
+    points
+WHERE 
+    (X = 0 AND Y = -1) OR (X = 0 AND Y = -2)
+ORDER BY 
+    distance_to_point
+LIMIT 1;
