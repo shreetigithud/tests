@@ -1,0 +1,20 @@
+Q16:- Write a SQL query to find the median salary of each company.?
+
+
+
+ANS:- SELECT
+    company_id,
+    CASE
+        WHEN COUNT(*) % 2 = 1 THEN
+            PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) 
+                OVER (PARTITION BY company_id)
+        ELSE
+            (PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) 
+                OVER (PARTITION BY company_id) +
+             LEAD(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary)) 
+                OVER (PARTITION BY company_id) ) / 2
+    END AS median_salary
+FROM
+    employees
+GROUP BY
+    company_id;
