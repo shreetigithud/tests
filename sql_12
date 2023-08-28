@@ -1,0 +1,4 @@
+ANS:- SELECT *
+FROM student
+ORDER BY birthdate ASC
+LIMIT 1;
